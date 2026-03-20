@@ -1,43 +1,113 @@
-// pega o botão que mostra uma mensagem, usando o id dele no HTML
-let botaoMensagem = document.getElementById("btnMensagem");
+/* seleciona todos os elementos da página */
+* {
+    margin: 0; /* remove a margem padrão de todos os elementos */
+    padding: 0; /* remove o espaçamento interno padrão de todos os elementos */
+    box-sizing: border-box; /* faz largura e altura incluírem borda e padding no cálculo */
+}
 
-// pega o botão que muda a cor do card, usando o id dele no HTML
-let botaoCor = document.getElementById("btnCor");
+/* estiliza o corpo geral da página */
+body {
+    font-family: Arial, sans-serif; /* define a fonte principal do site */
+    background-color: #f0f4f8; /* define a cor de fundo da página */
+    color: #333333; /* define a cor padrão dos textos */
+}
 
-// pega o parágrafo onde a mensagem será exibida
-let mensagem = document.getElementById("mensagem");
+/* estiliza o cabeçalho */
+header {
+    background-color: #2b6cb0; /* define a cor de fundo do cabeçalho */
+    color: white; /* define a cor do texto do cabeçalho */
+    text-align: center; /* centraliza o texto dentro do cabeçalho */
+    padding: 30px; /* adiciona espaçamento interno em todos os lados */
+}
 
-// pega o card principal da apresentação, usando a classe CSS
-let card = document.querySelector(".apresentacao");
+/* estiliza a área principal */
+main {
+    width: 80%; /* faz a área principal ocupar 80% da largura da tela */
+    max-width: 900px; /* limita a largura máxima em 900 pixels */
+    margin: 30px auto; /* centraliza horizontalmente e adiciona margem superior e inferior */
+}
 
-// adiciona um evento de clique no botão de mostrar mensagem
-botaoMensagem.addEventListener("click", function () {
+/* estiliza o card principal de apresentação */
+.apresentacao {
+    background-color: white; /* define fundo branco para o card */
+    text-align: center; /* centraliza os textos e elementos internos */
+    padding: 30px; /* adiciona espaço interno no card */
+    border-radius: 10px; /* arredonda os cantos do card */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* cria uma sombra suave ao redor do card */
+    margin-bottom: 25px; /* adiciona espaço abaixo do card */
+    transition: 0.3s; /* cria transição suave em mudanças visuais */
+}
 
-    // quando o botão for clicado, troca o texto do parágrafo pela mensagem desejada
-    mensagem.innerText = "Olá! Seja bem-vindo ao meu mini currículo.";
-});
+/* estiliza a imagem dentro do card de apresentação */
+.apresentacao img {
+    width: 150px; /* define largura fixa da imagem */
+    height: 200px; /* define altura fixa da imagem, mantendo proporção próxima de 3x4 */
+    object-fit: cover; /* evita deformação e recorta a imagem se necessário */
+    border-radius: 8px; /* arredonda levemente os cantos da imagem */
+    margin-bottom: 15px; /* adiciona espaço abaixo da imagem */
+}
 
-// cria uma variável para controlar se a cor atual do card foi alterada ou não
-let corAtual = 0;
+/* estiliza o título dentro do card */
+.apresentacao h2 {
+    margin-bottom: 10px; /* adiciona espaço abaixo do título */
+}
 
-// adiciona um evento de clique no botão de mudar cor
-botaoCor.addEventListener("click", function () {
+/* estiliza o texto dentro do card */
+.apresentacao p {
+    margin-bottom: 15px; /* adiciona espaço abaixo do parágrafo */
+}
 
-    // verifica se o valor atual da variável é 0
-    if (corAtual == 0) {
+/* estiliza todos os botões da página */
+button {
+    background-color: #2b6cb0; /* define a cor de fundo do botão */
+    color: white; /* define a cor do texto do botão */
+    border: none; /* remove a borda padrão */
+    padding: 12px 18px; /* adiciona espaçamento interno no botão */
+    margin: 5px; /* adiciona espaço externo em volta do botão */
+    border-radius: 8px; /* arredonda os cantos do botão */
+    cursor: pointer; /* muda o cursor para mãozinha ao passar sobre o botão */
+    transition: 0.3s; /* cria transição suave para efeitos visuais */
+}
 
-        // se for 0, muda a cor de fundo do card para azul claro
-        card.style.backgroundColor = "#dbeafe";
+/* efeito aplicado quando o mouse passa sobre o botão */
+button:hover {
+    background-color: #1e4e8c; /* escurece a cor do botão ao passar o mouse */
+    transform: scale(1.05); /* aumenta levemente o tamanho do botão */
+}
 
-        // altera o valor da variável para 1, indicando que a cor foi trocada
-        corAtual = 1;
+/* estiliza o parágrafo onde a mensagem do JavaScript aparecerá */
+#mensagem {
+    margin-top: 15px; /* adiciona espaço acima da mensagem */
+    font-weight: bold; /* deixa o texto em negrito */
+    color: #1e4e8c; /* define uma cor azul para a mensagem */
+}
 
-    } else {
+/* estiliza a seção de informações */
+.informacoes {
+    background-color: white; /* define fundo branco */
+    padding: 25px; /* adiciona espaço interno */
+    border-radius: 10px; /* arredonda os cantos */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* adiciona sombra suave */
+}
 
-        // caso contrário, volta a cor de fundo do card para branco
-        card.style.backgroundColor = "white";
+/* estiliza os subtítulos da seção de informações */
+.informacoes h2 {
+    margin-top: 15px; /* adiciona espaço acima do subtítulo */
+    margin-bottom: 10px; /* adiciona espaço abaixo do subtítulo */
+    color: #2b6cb0; /* define cor azul para os subtítulos */
+}
 
-        // altera o valor da variável para 0, indicando que voltou ao estado inicial
-        corAtual = 0;
-    }
-});
+/* estiliza a lista da seção de informações */
+.informacoes ul {
+    margin-left: 20px; /* desloca a lista um pouco para a direita */
+    margin-bottom: 15px; /* adiciona espaço abaixo da lista */
+}
+
+/* estiliza o rodapé */
+footer {
+    text-align: center; /* centraliza o texto do rodapé */
+    background-color: #2b6cb0; /* define a cor de fundo do rodapé */
+    color: white; /* define a cor do texto do rodapé */
+    padding: 20px; /* adiciona espaçamento interno */
+    margin-top: 30px; /* adiciona espaço acima do rodapé */
+}
